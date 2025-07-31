@@ -12,23 +12,20 @@
         --white: #ffffff;
       }
 
-      /* ======== LAYOUT ======== */
       html,
       body {
         height: 100%;
         margin: 0;
       }
       body {
-        display: flex;
-        flex-direction: column;
         font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
         color: var(--gray);
         background: var(--white);
       }
 
-      /* ======== NAV ======== */
+      /* ===== NAVBAR ===== */
       header {
-        flex: 0 0 120px; /* shrink nav zone */
+        height: 176px; /* large logo zone */
         background: var(--white);
         position: sticky;
         top: 0;
@@ -44,12 +41,12 @@
         justify-content: space-between;
       }
       .nav img {
-        height: 110px; /* scales with nav */
+        height: 156px; /* big logo */
       }
       .nav ul {
         list-style: none;
         display: flex;
-        gap: 28px;
+        gap: 32px;
         margin: 0;
         padding: 0;
       }
@@ -65,40 +62,37 @@
         color: var(--blue);
       }
 
-      /* ======== HERO ======== */
+      /* ===== HERO ===== */
       main.hero {
-        flex: 1 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin: 60px 24px; /* 60px gap above & below */
         text-align: center;
-        padding: 0 24px;
       }
       .hero h1 {
         max-width: 900px;
-        margin: 0;
-        line-height: 1.6; /* extra spacing */
+        margin: 0 auto;
+        line-height: 1.6;
         font-weight: 400;
-        font-size: clamp(22px, 3vw, 32px); /* slightly smaller */
+        font-size: clamp(22px, 3vw, 32px);
       }
 
-      /* ======== FOOTER ======== */
+      /* ===== FOOTER ===== */
       footer {
-        flex: 0 0 120px; /* same as nav height for symmetry */
+        height: 176px; /* mirrors nav height visually */
         display: flex;
-        align-items: center;
+        align-items: flex-start; /* top align so 60px gap realised */
         justify-content: center;
+        padding-top: 60px; /* matches hero margin-bottom */
         font-size: 18px;
         color: var(--gray);
       }
 
-      /* ======== Responsive ======== */
+      /* ===== Responsive ===== */
       @media (max-width: 640px) {
-        header { flex: 0 0 100px; }
-        .nav img { height: 92px; }
+        header { height: 140px; }
+        .nav img { height: 120px; }
         .nav a { font-size: 17px; }
-        footer { flex: 0 0 100px; }
-        .hero h1 { font-size: clamp(20px, 5.8vw, 28px); }
+        main.hero { margin: 40px 20px; }
+        footer { height: 140px; padding-top: 40px; }
       }
     </style>
   </head>

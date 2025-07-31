@@ -12,6 +12,7 @@
         --white: #ffffff;
       }
 
+      /* ======== GLOBAL FLEX LAYOUT ======== */
       html,
       body {
         height: 100%;
@@ -20,12 +21,12 @@
       body {
         display: flex;
         flex-direction: column;
-        font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif; /* slimmer look */
+        font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
         color: var(--gray);
         background: var(--white);
       }
 
-      /* ================= NAV ================= */
+      /* ============ NAV ============ */
       header {
         flex: 0 0 auto;
         background: var(--white);
@@ -37,13 +38,13 @@
         max-width: 1100px;
         margin: 0 auto;
         padding: 0 32px;
-        height: 176px; /* +36 so logo has breathing room */
+        height: 176px;
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
       .nav img {
-        height: 156px; /* 30% larger than previous 120px */
+        height: 156px;
       }
       .nav ul {
         list-style: none;
@@ -64,34 +65,34 @@
         color: var(--blue);
       }
 
-      /* ================= HERO ================= */
+      /* ============ HERO ============ */
       main.hero {
-        flex: 1 0 auto;
+        flex: 1 0 auto; /* takes remaining vertical space */
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start; /* start instead of center */
-        padding: 40px 24px 0; /* reduce space under nav by ~20% */
+        align-items: center; /* vertically center within hero area */
+        justify-content: center;
         text-align: center;
+        padding: 0 24px;
       }
       .hero h1 {
         max-width: 900px;
         margin: 0;
-        line-height: 1.5; /* wider spacing between lines */
-        font-weight: 400; /* slimmer weight */
-        font-size: clamp(22px, 3.2vw, 34px); /* slightly smaller overall */
+        line-height: 1.55; /* more spacing between lines */
+        font-weight: 400;
+        font-size: clamp(22px, 3.2vw, 34px);
       }
 
-      /* ================= FOOTER ================= */
+      /* ============ FOOTER ============ */
       footer {
-        flex: 0 0 auto;
-        text-align: center;
-        font-size: 18px; /* 16px * 1.15 ≈ 18 */
+        flex: 0 0 60px; /* fixed height so spacing matches top */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
         color: var(--gray);
-        padding: 20px 0 26px; /* reduced gap by ~20% */
       }
 
-      /* Responsive tweaks */
+      /* ====== Responsive tweaks ===== */
       @media (max-width: 640px) {
         .nav {
           height: 130px;
@@ -103,9 +104,6 @@
         .nav a {
           font-size: 17px;
         }
-        main.hero {
-          padding-top: 20px;
-        }
         .hero h1 {
           font-size: clamp(20px, 5.8vw, 30px);
         }
@@ -113,7 +111,7 @@
     </style>
   </head>
   <body>
-    <!-- ========= NAV ========= -->
+    <!-- ========== NAVBAR ========== -->
     <header>
       <div class="nav">
         <img src="logo.png" alt="PRISMA logo" />
@@ -128,7 +126,7 @@
       </div>
     </header>
 
-    <!-- ========= HERO ========= -->
+    <!-- ========== HERO ========== -->
     <main id="about" class="hero">
       <h1>
         PRISMA is an investment and development firm<br />focused on Industrial
@@ -141,7 +139,7 @@
     <section id="approach"></section>
     <section id="experience"></section>
 
-    <!-- ========= FOOTER ========= -->
+    <!-- ========== FOOTER ========== -->
     <footer>
       contacto@prismacap.mx
     </footer>

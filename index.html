@@ -12,7 +12,7 @@
         --white: #ffffff;
       }
 
-      /* ======== GLOBAL FLEX LAYOUT ======== */
+      /* ======== LAYOUT ======== */
       html,
       body {
         height: 100%;
@@ -26,9 +26,9 @@
         background: var(--white);
       }
 
-      /* ============ NAV ============ */
+      /* ======== NAV ======== */
       header {
-        flex: 0 0 auto;
+        flex: 0 0 120px; /* shrink nav zone */
         background: var(--white);
         position: sticky;
         top: 0;
@@ -36,20 +36,20 @@
       }
       .nav {
         max-width: 1100px;
+        height: 100%;
         margin: 0 auto;
         padding: 0 32px;
-        height: 176px;
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
       .nav img {
-        height: 156px;
+        height: 110px; /* scales with nav */
       }
       .nav ul {
         list-style: none;
         display: flex;
-        gap: 32px;
+        gap: 28px;
         margin: 0;
         padding: 0;
       }
@@ -65,11 +65,11 @@
         color: var(--blue);
       }
 
-      /* ============ HERO ============ */
+      /* ======== HERO ======== */
       main.hero {
-        flex: 1 0 auto; /* takes remaining vertical space */
+        flex: 1 0 auto;
         display: flex;
-        align-items: center; /* vertically center within hero area */
+        align-items: center;
         justify-content: center;
         text-align: center;
         padding: 0 24px;
@@ -77,14 +77,14 @@
       .hero h1 {
         max-width: 900px;
         margin: 0;
-        line-height: 1.55; /* more spacing between lines */
+        line-height: 1.6; /* extra spacing */
         font-weight: 400;
-        font-size: clamp(22px, 3.2vw, 34px);
+        font-size: clamp(22px, 3vw, 32px); /* slightly smaller */
       }
 
-      /* ============ FOOTER ============ */
+      /* ======== FOOTER ======== */
       footer {
-        flex: 0 0 60px; /* fixed height so spacing matches top */
+        flex: 0 0 120px; /* same as nav height for symmetry */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -92,21 +92,13 @@
         color: var(--gray);
       }
 
-      /* ====== Responsive tweaks ===== */
+      /* ======== Responsive ======== */
       @media (max-width: 640px) {
-        .nav {
-          height: 130px;
-          padding: 0 20px;
-        }
-        .nav img {
-          height: 110px;
-        }
-        .nav a {
-          font-size: 17px;
-        }
-        .hero h1 {
-          font-size: clamp(20px, 5.8vw, 30px);
-        }
+        header { flex: 0 0 100px; }
+        .nav img { height: 92px; }
+        .nav a { font-size: 17px; }
+        footer { flex: 0 0 100px; }
+        .hero h1 { font-size: clamp(20px, 5.8vw, 28px); }
       }
     </style>
   </head>

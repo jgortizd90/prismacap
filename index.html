@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PRISMA | Industrial Real Estate in Mexico</title>
+
     <style>
+      /* ======================= THEME COLORS ======================= */
       :root {
         --blue: #004080;
         --gray: #404040;
         --white: #ffffff;
       }
 
+      /* ======================= GLOBAL STYLES ====================== */
       html {
         scroll-behavior: smooth;
       }
@@ -21,13 +24,12 @@
         background: var(--white);
       }
 
-      /* ============================= NAV ============================= */
+      /* ============================ NAV =========================== */
       header {
         position: sticky;
         top: 0;
         background: var(--white);
-        z-index: 10;
-        border-bottom: 1px solid #eaeaea;
+        z-index: 100;
       }
       .nav-wrapper {
         max-width: 1200px;
@@ -38,33 +40,29 @@
         justify-content: space-between;
         height: 68px;
       }
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
       .logo img {
-        height: 32px;
+        height: 36px;
       }
       nav ul {
         list-style: none;
         display: flex;
-        gap: 1.5rem;
+        gap: 2rem;
         margin: 0;
         padding: 0;
       }
       nav a {
         text-decoration: none;
+        font-size: 1.05rem;
         font-weight: 500;
         color: var(--gray);
         transition: color 0.3s;
       }
-      nav a.active,
-      nav a:hover {
+      nav a:hover,
+      nav a.active {
         color: var(--blue);
       }
 
-      /* ========================== HERO ============================ */
+      /* ============================ HERO ========================== */
       .hero {
         display: grid;
         place-items: center;
@@ -73,55 +71,87 @@
         min-height: calc(100vh - 68px); /* full viewport minus nav */
       }
       .hero h1 {
-        max-width: 800px;
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        max-width: 650px;
+        font-size: clamp(2.4rem, 5.2vw, 4rem);
         font-weight: 600;
         margin: 0;
-        color: var(--blue);
+        color: var(--gray); /* headline is gray */
+        line-height: 1.25;
+      }
+      .hero br {
+        display: none;
+      }
+      @media (min-width: 800px) {
+        /* force two lines on larger screens */
+        .hero br {
+          display: initial;
+        }
       }
 
-      /* ========================= RESPONSIVE ======================== */
+      /* =========================== FOOTER ========================= */
+      footer {
+        text-align: center;
+        padding: 2rem 0 3rem;
+        font-size: 0.9rem;
+        color: var(--gray);
+      }
+
+      /* ========================= RESPONSIVE ======================= */
       @media (max-width: 600px) {
         nav ul {
           gap: 1rem;
         }
+        nav a {
+          font-size: 0.95rem;
+        }
         .hero h1 {
-          font-size: clamp(2rem, 8vw, 3rem);
+          font-size: clamp(1.8rem, 7.5vw, 2.4rem);
+          max-width: 90%;
         }
       }
     </style>
   </head>
   <body>
-    <!-- =========================== NAV ============================ -->
+    <!-- ========================= NAV ============================ -->
     <header>
       <div class="nav-wrapper">
         <a href="#top" class="logo">
-          <img src="assets/logo.png" alt="PRISMA logo" />
+          <!-- Place logo.png in repo root -->
+          <img src="logo.png" alt="PRISMA logo" />
         </a>
         <nav>
           <ul>
             <li><a href="#about" class="active">About</a></li>
             <li><a href="#what-we-do">What We Do</a></li>
-            <li><a href="#experience">Experience</a></li>
             <li><a href="#approach">Approach</a></li>
+            <li><a href="#experience">Experience</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- ========================== HERO ============================ -->
+    <!-- ========================= HERO =========================== -->
     <main id="top" class="hero">
-      <h1>PRISMA is an investment and development firm focused on Industrial Real Estate in Mexico.</h1>
+      <h1>
+        PRISMA is an investment and development firm<br />focused on Industrial
+        Real Estate in Mexico.
+      </h1>
     </main>
 
-    <!-- Placeholder sections so links don't break yet -->
+    <!-- Placeholder anchors for nav links -->
     <section id="about"></section>
     <section id="what-we-do"></section>
-    <section id="experience"></section>
     <section id="approach"></section>
+    <section id="experience"></section>
 
+    <!-- ======================== FOOTER ========================== -->
+    <footer>
+      contacto@prismacap.mx
+    </footer>
+
+    <!-- ===================== SIMPLE JS ========================= -->
     <script>
-      // nav link active state on click (simple for now)
+      // Set active nav link on click (single-page for now)
       document.querySelectorAll("nav a").forEach((link) => {
         link.addEventListener("click", () => {
           document.querySelectorAll("nav a").forEach((l) => l.classList.remove("active"));

@@ -26,7 +26,7 @@
         overflow-x: hidden;
       }
 
-      /* ===== NAVBAR (desktop) ===== */
+      /* ===== DESKTOP NAVBAR ===== */
       header {
         flex: 0 0 auto;
         height: 176px;
@@ -59,7 +59,7 @@
         color: var(--blue);
       }
 
-      /* ===== HERO ===== */
+      /* HERO */
       main.hero {
         flex: 1 0 auto;
         display: flex;
@@ -76,7 +76,7 @@
         max-width: 100%;
       }
 
-      /* ===== FOOTER ===== */
+      /* FOOTER */
       footer {
         flex: 0 0 auto;
         height: 176px;
@@ -88,48 +88,31 @@
         color: var(--gray);
       }
 
-      /* =========== MOBILE (≤640px) =========== */
+      /* ==== MOBILE / SMALL TABLET (≤ 900px) STACKED NAV UNDER LOGO ==== */
       @media (max-width: 900px) {
         header {
-          height: 120px;
-          padding: 0 24px;
-          justify-content: center; /* center logo */
+          height: auto;
+          padding: 20px 24px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
         }
         header img {
           height: 90px;
+          margin-bottom: 8px;
         }
-
-        /* hamburger button */
-        .menu-toggle {
-          display: block;
-          position: absolute;
-          right: 24px;
-          top: 50%;
-          transform: translateY(-50%);
-          background: none;
-          border: none;
-          font-size: 32px;
-          color: var(--gray);
-          cursor: pointer;
+        nav {
+          width: 100%;
         }
-
         nav ul {
-          display: none; /* hidden until toggled */
-          flex-direction: column;
-          gap: 24px;
-          position: absolute;
-          top: 100%;
-          right: 0;
-          background: var(--white);
-          padding: 24px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+          gap: 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
         }
-        nav.open ul {
-          display: flex;
-        }
-
         nav a {
-          font-size: 18px;
+          font-size: 16px;
         }
 
         main.hero {
@@ -141,15 +124,10 @@
         }
 
         footer {
-          height: 120px;
+          height: auto;
           padding-top: 80px;
           font-size: 16px;
         }
-      }
-
-      /* hide burger on desktop */
-      .menu-toggle {
-        display: none;
       }
     </style>
   </head>
@@ -157,9 +135,6 @@
     <!-- NAV -->
     <header>
       <img src="logo.png" alt="PRISMA logo" />
-
-      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
-
       <nav>
         <ul>
           <li><a href="#about" class="active">About</a></li>
@@ -184,24 +159,15 @@
     <section id="experience"></section>
 
     <!-- FOOTER -->
-    <footer>
-      contacto@prismacap.mx
-    </footer>
+    <footer>contacto@prismacap.mx</footer>
 
     <script>
-      // Mobile: toggle menu
-      const menuBtn = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('header nav');
-      menuBtn.addEventListener('click', () => {
-        nav.classList.toggle('open');
-      });
-
-      // keep active link highlight on click
-      nav.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          nav.querySelectorAll('a').forEach((l) => l.classList.remove('active'));
-          link.classList.add('active');
-          nav.classList.remove('open'); // close menu after selection
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document
+            .querySelectorAll("nav a")
+            .forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
         });
       });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PRISMA | Industrial Real Estate in Mexico</title>
+    <title>PRISMA | Industrial Real Estate</title>
 
     <style>
       :root {
@@ -23,17 +23,18 @@
         background: var(--white);
         display: flex;
         flex-direction: column;
-        overflow-x: hidden; /* prevent horizontal scroll on mobile */
+        overflow-x: hidden;
       }
 
-      /* ===== NAVBAR ===== */
+      /* ===== NAVBAR (desktop) ===== */
       header {
         flex: 0 0 auto;
         height: 176px;
         display: flex;
         align-items: center;
-        justify-content: space-between; /* logo left, nav right */
+        justify-content: space-between;
         padding: 0 160px;
+        position: relative;
       }
       header img {
         height: 156px;
@@ -49,7 +50,7 @@
         text-decoration: none;
         color: var(--gray);
         font-size: 22px;
-        font-weight: 400; /* slimmer */
+        font-weight: 400;
         letter-spacing: 0.4px;
         transition: color 0.25s;
       }
@@ -87,25 +88,52 @@
         color: var(--gray);
       }
 
-      /* ===== Responsive (≤ 640px) ===== */
+      /* =========== MOBILE (≤640px) =========== */
       @media (max-width: 640px) {
         header {
           height: 120px;
-          padding: 0 24px; /* narrow side padding */
+          padding: 0 24px;
+          justify-content: center; /* center logo */
         }
         header img {
-          height: 90px; /* shrink logo */
+          height: 90px;
         }
+
+        /* hamburger button */
+        .menu-toggle {
+          display: block;
+          position: absolute;
+          right: 24px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          font-size: 32px;
+          color: var(--gray);
+          cursor: pointer;
+        }
+
         nav ul {
-          gap: 16px;
-          flex-wrap: wrap; /* allow wrapping if needed */
+          display: none; /* hidden until toggled */
+          flex-direction: column;
+          gap: 24px;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: var(--white);
+          padding: 24px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
         }
+        nav.open ul {
+          display: flex;
+        }
+
         nav a {
-          font-size: 16px; /* still readable */
+          font-size: 18px;
         }
 
         main.hero {
-          margin: 80px 0; /* scaled gaps */
+          margin: 80px 0;
           padding: 0 24px;
         }
         .hero h1 {
@@ -118,12 +146,20 @@
           font-size: 16px;
         }
       }
+
+      /* hide burger on desktop */
+      .menu-toggle {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <!-- NAV -->
     <header>
       <img src="logo.png" alt="PRISMA logo" />
+
+      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
       <nav>
         <ul>
           <li><a href="#about" class="active">About</a></li>
@@ -142,7 +178,7 @@
       </h1>
     </main>
 
-    <!-- Placeholders for future sections -->
+    <!-- placeholders for future sections -->
     <section id="what-we-do"></section>
     <section id="approach"></section>
     <section id="experience"></section>
@@ -153,10 +189,19 @@
     </footer>
 
     <script>
-      document.querySelectorAll('nav a').forEach((link) => {
+      // Mobile: toggle menu
+      const menuBtn = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('header nav');
+      menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+
+      // keep active link highlight on click
+      nav.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-          document.querySelectorAll('nav a').forEach((l) => l.classList.remove('active'));
+          nav.querySelectorAll('a').forEach((l) => l.classList.remove('active'));
           link.classList.add('active');
+          nav.classList.remove('open'); // close menu after selection
         });
       });
     </script>

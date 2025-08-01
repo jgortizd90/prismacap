@@ -23,6 +23,7 @@
         background: var(--white);
         display: flex;
         flex-direction: column;
+        overflow-x: hidden; /* prevent horizontal scroll on mobile */
       }
 
       /* ===== NAVBAR ===== */
@@ -32,7 +33,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between; /* logo left, nav right */
-        padding: 0 160px; /* red/orange dot offsets */
+        padding: 0 160px;
       }
       header img {
         height: 156px;
@@ -48,7 +49,7 @@
         text-decoration: none;
         color: var(--gray);
         font-size: 22px;
-        font-weight: 400; /* thinner weight */
+        font-weight: 400; /* slimmer */
         letter-spacing: 0.4px;
         transition: color 0.25s;
       }
@@ -64,8 +65,8 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        margin: 153px 0; /* equal gaps top & bottom */
-        padding: 0 160px; /* aligns with nav padding */
+        margin: 153px 0;
+        padding: 0 160px;
       }
       .hero h1 {
         line-height: 1.6;
@@ -79,21 +80,43 @@
         flex: 0 0 auto;
         height: 176px;
         display: flex;
-        align-items: flex-start; /* align to top so gap matches */
+        align-items: flex-start;
         justify-content: center;
-        padding-top: 153px; /* mirror hero gap */
+        padding-top: 153px;
         font-size: 20px;
         color: var(--gray);
       }
 
-      /* ===== Responsive ===== */
-      @media (max-width: 900px) {
-        header { height: 140px; padding: 0 80px; }
-        header img { height: 120px; }
-        nav ul { gap: 24px; }
-        nav a { font-size: 18px; }
-        main.hero { margin: 100px 0; padding: 0 80px; }
-        footer { height: 140px; padding-top: 100px; font-size: 18px; }
+      /* ===== Responsive (≤ 640px) ===== */
+      @media (max-width: 640px) {
+        header {
+          height: 120px;
+          padding: 0 24px; /* narrow side padding */
+        }
+        header img {
+          height: 90px; /* shrink logo */
+        }
+        nav ul {
+          gap: 16px;
+          flex-wrap: wrap; /* allow wrapping if needed */
+        }
+        nav a {
+          font-size: 16px; /* still readable */
+        }
+
+        main.hero {
+          margin: 80px 0; /* scaled gaps */
+          padding: 0 24px;
+        }
+        .hero h1 {
+          font-size: clamp(20px, 6vw, 28px);
+        }
+
+        footer {
+          height: 120px;
+          padding-top: 80px;
+          font-size: 16px;
+        }
       }
     </style>
   </head>
@@ -119,7 +142,7 @@
       </h1>
     </main>
 
-    <!-- placeholders for next sections -->
+    <!-- Placeholders for future sections -->
     <section id="what-we-do"></section>
     <section id="approach"></section>
     <section id="experience"></section>

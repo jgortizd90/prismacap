@@ -14,8 +14,8 @@
 
       html,
       body {
-        height: 100%;
         margin: 0;
+        height: 100%;
       }
       body {
         font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
@@ -23,25 +23,28 @@
         background: var(--white);
       }
 
-      /* ===== NAVBAR ===== */
+      /* --- shared wrapper: offset 10cm from left, fixed 1100px width --- */
+      .wrapper {
+        width: 1100px;
+        margin-left: 10cm; /* ≈ 378 px */
+      }
+
+      /* ========== NAVBAR ========== */
       header {
-        height: 176px; /* large logo zone */
+        height: 176px;
         background: var(--white);
         position: sticky;
         top: 0;
         z-index: 100;
       }
       .nav {
-        max-width: 1100px;
         height: 100%;
-        margin: 0 auto;
-        padding: 0 32px;
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
       .nav img {
-        height: 156px; /* big logo */
+        height: 156px; /* logo unchanged */
       }
       .nav ul {
         list-style: none;
@@ -53,7 +56,7 @@
       .nav a {
         text-decoration: none;
         color: var(--gray);
-        font-size: 20px;
+        font-size: 22px; /* +10% */
         font-weight: 500;
         transition: color 0.25s;
       }
@@ -62,44 +65,44 @@
         color: var(--blue);
       }
 
-      /* ===== HERO ===== */
+      /* ========== HERO ========== */
       main.hero {
-        margin: 153px 24px; /* 60px gap above & below */
+        margin: 153px 0; /* keep vertical gaps */
         text-align: center;
       }
       .hero h1 {
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
         line-height: 1.6;
         font-weight: 400;
-        font-size: clamp(22px, 3vw, 32px);
+        font-size: clamp(24px, 3.3vw, 35px); /* +10% */
       }
 
-      /* ===== FOOTER ===== */
+      /* ========== FOOTER ========== */
       footer {
-        height: 176px; /* mirrors nav height visually */
+        height: 176px;
         display: flex;
-        align-items: flex-start; /* top align so 60px gap realised */
+        align-items: flex-start;
         justify-content: center;
-        padding-top: 153px; /* matches hero margin-bottom */
-        font-size: 18px;
+        padding-top: 153px;
+        font-size: 20px; /* +10% */
         color: var(--gray);
       }
 
-      /* ===== Responsive ===== */
-      @media (max-width: 640px) {
-        header { height: 140px; }
-        .nav img { height: 120px; }
-        .nav a { font-size: 17px; }
-        main.hero { margin: 40px 20px; }
-        footer { height: 140px; padding-top: 40px; }
+      /* ===== Responsive: simply allow full-width below certain vw ===== */
+      @media (max-width: 1500px) {
+        .wrapper {
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- ========== NAVBAR ========== -->
+    <!-- NAV -->
     <header>
-      <div class="nav">
+      <div class="wrapper nav">
         <img src="logo.png" alt="PRISMA logo" />
         <nav>
           <ul>
@@ -112,22 +115,24 @@
       </div>
     </header>
 
-    <!-- ========== HERO ========== -->
+    <!-- HERO -->
     <main id="about" class="hero">
-      <h1>
-        PRISMA is an investment and development firm<br />focused on Industrial
-        Real Estate in Mexico.
-      </h1>
+      <div class="wrapper">
+        <h1>
+          PRISMA is an investment and development firm<br />focused on Industrial
+          Real Estate in Mexico.
+        </h1>
+      </div>
     </main>
 
-    <!-- Placeholder anchors for upcoming sections -->
+    <!-- Placeholders -->
     <section id="what-we-do"></section>
     <section id="approach"></section>
     <section id="experience"></section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- FOOTER -->
     <footer>
-      contacto@prismacap.mx
+      <div class="wrapper">contacto@prismacap.mx</div>
     </footer>
 
     <script>

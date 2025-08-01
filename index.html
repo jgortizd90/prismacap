@@ -26,7 +26,7 @@
         overflow-x: hidden;
       }
 
-      /* ===== DESKTOP NAVBAR ===== */
+      /* ===== NAVBAR (desktop) ===== */
       header {
         flex: 0 0 auto;
         height: 176px;
@@ -59,75 +59,26 @@
         color: var(--blue);
       }
 
-      /* HERO */
+      /* ===== HERO ===== */
       main.hero {
-        flex: 1 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        margin: 153px 0;
-        padding: 0 160px;
-      }
-      .hero h1 {
-        line-height: 1.6;
-        font-weight: 400;
-        font-size: clamp(24px, 3.3vw, 35px);
-        max-width: 100%;
-      }
-
-      /* FOOTER */
-      footer {
-        flex: 0 0 auto;
-        height: 176px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 153px;
-        font-size: 20px;
-        color: var(--gray);
-      }
-
-      /* ==== MOBILE / SMALL TABLET (≤ 900px) STACKED NAV UNDER LOGO ==== */
-      @media (max-width: 900px) {
-        header {
-          height: auto;
-          padding: 20px 24px;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-        }
-        header img {
-          height: 90px;
-          margin-bottom: 8px;
-        }
-        nav {
-          width: 100%;
-        }
-        nav ul {
-          gap: 16px;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin: 0;
-          padding: 0;
-        }
-        nav a {
-          font-size: 16px;
-        }
-
-        main.hero {
-          margin: 80px 0;
+          margin: 40px 0;/* reduced by 50% */
           padding: 0 24px;
         }
-        .hero h1 {
-          font-size: clamp(20px, 6vw, 28px);
+      .hero h1 {
+          font-size: clamp(14px, 4.2vw, 20px);/* 30% smaller */
         }
 
-        footer {
+      /* ===== FOOTER ===== */
+      footer {
           height: auto;
-          padding-top: 80px;
+          padding-top: 40px;/* reduced by 50% */
           font-size: 16px;
         }
+      }
+
+      /* hide burger on desktop */
+      .menu-toggle {
+        display: none;
       }
     </style>
   </head>
@@ -135,6 +86,9 @@
     <!-- NAV -->
     <header>
       <img src="logo.png" alt="PRISMA logo" />
+
+      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
       <nav>
         <ul>
           <li><a href="#about" class="active">About</a></li>
@@ -159,15 +113,24 @@
     <section id="experience"></section>
 
     <!-- FOOTER -->
-    <footer>contacto@prismacap.mx</footer>
+    <footer>
+      contacto@prismacap.mx
+    </footer>
 
     <script>
-      document.querySelectorAll("nav a").forEach((link) => {
-        link.addEventListener("click", () => {
-          document
-            .querySelectorAll("nav a")
-            .forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
+      // Mobile: toggle menu
+      const menuBtn = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('header nav');
+      menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+
+      // keep active link highlight on click
+      nav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          nav.querySelectorAll('a').forEach((l) => l.classList.remove('active'));
+          link.classList.add('active');
+          nav.classList.remove('open'); // close menu after selection
         });
       });
     </script>

@@ -14,131 +14,124 @@
 
       html,
       body {
-        margin: 0;
         height: 100%;
+        margin: 0;
       }
       body {
         font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
         color: var(--gray);
         background: var(--white);
+        display: flex;
+        flex-direction: column;
       }
 
-      /* --- shared wrapper: offset 10cm from left, fixed 1100px width --- */
-      .wrapper {
-        width: 1100px;
-        margin-left: 10cm; /* ≈ 378 px */
-      }
-
-      /* ========== NAVBAR ========== */
+      /* ===== NAVBAR ===== */
       header {
+        flex: 0 0 auto;
         height: 176px;
-        background: var(--white);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      .nav {
-        height: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-between; /* logo left, nav right */
+        padding: 0 60px; /* red/orange dot offsets */
       }
-      .nav img {
-        height: 156px; /* logo unchanged */
+      header img {
+        height: 156px;
       }
-      .nav ul {
+      nav ul {
         list-style: none;
         display: flex;
-        gap: 32px;
+        gap: 40px;
         margin: 0;
         padding: 0;
       }
-      .nav a {
+      nav a {
         text-decoration: none;
         color: var(--gray);
-        font-size: 22px; /* +10% */
+        font-size: 22px;
         font-weight: 500;
         transition: color 0.25s;
       }
-      .nav a:hover,
-      .nav a.active {
+      nav a:hover,
+      nav a.active {
         color: var(--blue);
       }
 
-      /* ========== HERO ========== */
+      /* ===== HERO ===== */
       main.hero {
-        margin: 153px 0; /* keep vertical gaps */
+        flex: 1 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
+        margin: 153px 0; /* equal gaps top & bottom */
+        padding: 0 60px; /* aligns with nav padding */
       }
       .hero h1 {
-        max-width: 1100px;
-        margin: 0 auto;
         line-height: 1.6;
         font-weight: 400;
-        font-size: clamp(24px, 3.3vw, 35px); /* +10% */
+        font-size: clamp(24px, 3.3vw, 35px);
+        max-width: 100%;
       }
 
-      /* ========== FOOTER ========== */
+      /* ===== FOOTER ===== */
       footer {
+        flex: 0 0 auto;
         height: 176px;
         display: flex;
-        align-items: flex-start;
+        align-items: flex-start; /* align to top so gap matches */
         justify-content: center;
-        padding-top: 153px;
-        font-size: 20px; /* +10% */
+        padding-top: 153px; /* mirror hero gap */
+        font-size: 20px;
         color: var(--gray);
       }
 
-      /* ===== Responsive: simply allow full-width below certain vw ===== */
-      @media (max-width: 1500px) {
-        .wrapper {
-          margin-left: auto;
-          margin-right: auto;
-          width: 90%;
-        }
+      /* ===== Responsive ===== */
+      @media (max-width: 900px) {
+        header { height: 140px; padding: 0 30px; }
+        header img { height: 120px; }
+        nav ul { gap: 24px; }
+        nav a { font-size: 18px; }
+        main.hero { margin: 100px 0; padding: 0 30px; }
+        footer { height: 140px; padding-top: 100px; font-size: 18px; }
       }
     </style>
   </head>
   <body>
     <!-- NAV -->
     <header>
-      <div class="wrapper nav">
-        <img src="logo.png" alt="PRISMA logo" />
-        <nav>
-          <ul>
-            <li><a href="#about" class="active">About</a></li>
-            <li><a href="#what-we-do">What We Do</a></li>
-            <li><a href="#approach">Approach</a></li>
-            <li><a href="#experience">Experience</a></li>
-          </ul>
-        </nav>
-      </div>
+      <img src="logo.png" alt="PRISMA logo" />
+      <nav>
+        <ul>
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#what-we-do">What We Do</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#experience">Experience</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- HERO -->
     <main id="about" class="hero">
-      <div class="wrapper">
-        <h1>
-          PRISMA is an investment and development firm<br />focused on Industrial
-          Real Estate in Mexico.
-        </h1>
-      </div>
+      <h1>
+        PRISMA is an investment and development firm<br />focused on Industrial
+        Real Estate in Mexico.
+      </h1>
     </main>
 
-    <!-- Placeholders -->
+    <!-- placeholders for next sections -->
     <section id="what-we-do"></section>
     <section id="approach"></section>
     <section id="experience"></section>
 
     <!-- FOOTER -->
     <footer>
-      <div class="wrapper">contacto@prismacap.mx</div>
+      contacto@prismacap.mx
     </footer>
 
     <script>
-      document.querySelectorAll('.nav a').forEach((link) => {
+      document.querySelectorAll('nav a').forEach((link) => {
         link.addEventListener('click', () => {
-          document.querySelectorAll('.nav a').forEach((l) => l.classList.remove('active'));
+          document.querySelectorAll('nav a').forEach((l) => l.classList.remove('active'));
           link.classList.add('active');
         });
       });

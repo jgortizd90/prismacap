@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PRISMA | Industrial Real Estate in Mexico</title>
+    <title>PRISMA | Industrial Real Estate</title>
 
     <style>
       :root {
@@ -78,60 +78,17 @@
 
       /* ===================== FOOTER ===================== */
       footer {
-        flex: 0 0 auto;
-        height: 176px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding-top: 153px;
-        font-size: 20px;
-        color: var(--gray);
-      }
-
-      /* ===================== MOBILE STACK (≤900px) ===================== */
-      @media (max-width: 900px) {
-        header {
-          height: 120px;
-          padding: 20px 24px;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-        }
-        header img {
-          height: 90px;
-          margin-bottom: 8px;
-        }
-        nav {
-          width: 100%;
-        }
-        nav ul {
-          gap: 16px;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin: 0;
-          padding: 0;
-        }
-        nav a {
-          font-size: 16px;
-        }
-
-        main.hero {
-          margin: 80px 0;
-          padding: 0 24px;
-        }
-        .hero h1 {
-          font-size: clamp(20px, 6vw, 28px);
-        }
-
-        footer {
-          height: auto;
-          padding-top: 80px;
+    height: auto;
+    padding-top: 40px;
           font-size: 16px;
         }
       }
     </style>
   </head>
   <body>
+    <!-- begin shift wrapper -->
+    <div class="site-offset">
+    
     <!-- NAV -->
     <header>
       <img src="logo.png" alt="PRISMA logo" />
@@ -162,6 +119,8 @@
     <footer>
       contacto@prismacap.mx
     </footer>
+
+    </div><!-- end shift wrapper -->
 
     <script>
       document.querySelectorAll('nav a').forEach((link) => {

@@ -33,7 +33,7 @@
         to   { opacity: 1; transform: translateY(0); }
       }
       .service {
-        opacity: 0;                         /* hidden by default */
+        opacity: 0;
         animation: fadeUp 0.6s ease-out forwards;
       }
       .service:nth-child(2) { animation-delay: 0.15s; }
@@ -87,7 +87,6 @@
         max-width: 1400px;
         margin: 0 auto;
       }
-      /* heading box for equal divider alignment */
       .service h2 {
         color: var(--blue);
         font-weight: 400;
@@ -98,6 +97,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;  /* ensures each line centers within the heading */
       }
       .divider {
         width: 100%;

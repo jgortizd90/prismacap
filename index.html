@@ -17,6 +17,7 @@
         height: 100%;
         margin: 0;
       }
+
       body {
         font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
         color: var(--gray);
@@ -24,6 +25,8 @@
         display: flex;
         flex-direction: column;
         overflow-x: hidden; /* avoid horizontal scroll */
+        position: relative; /* ================= ADDED */
+        left: -10vw;        /* ~10% shift left to better center page */
       }
 
       /* ===================== DESKTOP NAVBAR ===================== */

@@ -1,1 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approach | PRISMA</title>
+
+    <style>
+      :root {
+        --blue: #004080;
+        --gray: #404040;
+        --white: #ffffff;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+        color: var(--gray);
+        background: var(--white);
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      /* ======== simple fade animation ======== */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .row .left   { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
+      .row .right  { opacity: 0; animation: fadeInUp 0.6s ease-out forwards 0.25s; }
+      /* stagger later rows */
+      .row:nth-child(2) .left  { animation-delay: 0.5s; }
+      .row:nth-child(2) .right { animation-delay: 0.75s; }
+      .row:nth-child(3) .left  { animation-delay: 1s; }
+      .row:nth-child(3) .right { animation-delay: 1.25s; }
+      @media (prefers-reduced-motion: reduce) {
+        .row .left, .row .right { animation: none !important; opacity: 1 !important; }
+      }
+
+      /* ===================== NAVBAR (same as other pages) ===================== */
+      header {
+        flex: 0 0 auto;
+        height: 176px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 160px;
+      }
+      header img { height: 156px; margin-left: -5vw; }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0; padding: 0;
+      }
+      nav a {
+        text-decoration: none; color: var(--gray);
+        font-size: 22px; font-weight: 400; letter-spacing: 0.4px;
+        transition: color 0.25s;
+      }
+      nav a:hover, nav a.active { color: var(--blue); }
+
+      /* ===================== APPROACH SECTION ===================== */
+      main {
+        flex: 1 0 auto;
+        padding: 100px 160px 0; /* top, sides, bottom */
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 80px;
+        align-items: flex-start;
+        margin-bottom: 120px;
+      }
+      .row:last-child { margin-bottom: 0; }
+
+      .left {
+        color: var(--blue);
+        font-weight: 400;
+        font-size: clamp(24px, 3vw, 32px);
+        line-height: 1.3;
+      }
+
+      .right {
+        font-size: 20px;
+        line-height: 1.6;
+      }
+
+      /* vertical divider */
+      .row {
+        position: relative;
+      }
+      .row::before {
+        content: "";
+        position: absolute;
+        left: calc(320px + 40px); /* 320 (left col) + 40 (half gap) */
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: var(--gray);
+      }
+
+      /* ===================== FOOTER ===================== */
+      footer {
+        flex: 0 0 auto;
+        height: 176px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 180px;
+        font-size: 20px;
+      }
+
+      /* ===================== MOBILE STACK (≤900px) ===================== */
+      @media (max-width: 900px) {
+        header {
+          height: 120px; padding: 20px 24px; flex-direction: column; align-items: center;
+        }
+        header img { height: 90px; margin-left: 0; margin-bottom: 8px; }
+        nav ul { gap: 16px; flex-wrap: wrap; justify-content: center; }
+        nav a { font-size: 16px; }
+
+        main { padding: 64px 24px 0; }
+        .row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 80px; }
+        .row::before { display: none; }
+        .left { font-size: 24px; }
+        .right { font-size: 16px; }
+        footer { height: auto; padding-top: 24px; font-size: 16px; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <a href="index.html"><img src="logo.png" alt="PRISMA logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="approach.html" class="active">Approach</a></li>
+          <li><a href="#" onclick="alert('Experience page coming soon')">Experience</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- APPROACH CONTENT -->
+    <main>
+      <div class="row">
+        <div class="left">Long‑Term Vision /<br />Win‑Win Approach</div>
+        <div class="right">
+          We aim to be our clients’ long‑term partner of choice by consistently
+          exceeding expectations in both execution and service. We focus on
+          building lasting, win‑win relationships.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="left">Independent<br />Thinking</div>
+        <div class="right">
+          We assess every opportunity on its own merits. By staying flexible,
+          creative, and independent in our thinking, we’re able to approach
+          problems differently and deliver better outcomes.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="left">Disciplined<br />Investment</div>
+        <div class="right">
+          We invest where we have a clear edge. Our investment approach is
+          centered around reducing risk without proportionately reducing
+          returns.
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      contacto@prismacap.mx
+    </footer>
+  </body>
+</html>
 

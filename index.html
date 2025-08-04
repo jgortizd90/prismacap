@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PRISMA | Industrial Real Estate in Mexico</title>
+    <title>PRISMA | Industrial Real Estate</title>
 
     <style>
       :root {
@@ -12,46 +12,56 @@
         --white: #ffffff;
       }
 
+      /* === Reset & base === */
       html,
       body {
-        height: 100%;
         margin: 0;
+        height: 100%;
       }
       body {
         font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
-        color: var(--gray);
         background: var(--white);
+        color: var(--gray);
         display: flex;
         flex-direction: column;
-        overflow-x: hidden; /* avoid horizontal scroll */
+        overflow-x: hidden; /* prevent horizontal scroll */
       }
 
-      /* ===================== DESKTOP NAVBAR ===================== */
+      /* === Desktop‑only visual centering (20% left shift) === */
+      .site {
+        position: relative;
+      }
+      @media (min-width: 901px) {
+        .site {
+          left: -10vw; /* move overall content ~20% viewport width left */
+        }
+      }
+
+      /* ================= NAVBAR (desktop) ================= */
       header {
         flex: 0 0 auto;
         height: 176px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 160px; /* desktop left/right offset */
-        position: relative;
+        padding: 0 160px;
       }
       header img {
         height: 156px;
       }
       nav ul {
-        list-style: none;
         display: flex;
         gap: 40px;
+        list-style: none;
         margin: 0;
         padding: 0;
       }
       nav a {
         text-decoration: none;
-        color: var(--gray);
         font-size: 22px;
         font-weight: 400;
         letter-spacing: 0.4px;
+        color: var(--gray);
         transition: color 0.25s;
       }
       nav a:hover,
@@ -59,24 +69,24 @@
         color: var(--blue);
       }
 
-      /* ===================== HERO ===================== */
+      /* ================= HERO ================= */
       main.hero {
         flex: 1 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        margin: 153px 0; /* equal gap top & bottom */
+        margin: 153px 0;
         padding: 0 160px;
       }
       .hero h1 {
-        line-height: 1.6;
-        font-weight: 400;
         font-size: clamp(24px, 3.3vw, 35px);
+        font-weight: 400;
+        line-height: 1.6;
         max-width: 100%;
       }
 
-      /* ===================== FOOTER ===================== */
+      /* ================= FOOTER ================= */
       footer {
         flex: 0 0 auto;
         height: 176px;
@@ -88,14 +98,13 @@
         color: var(--gray);
       }
 
-      /* ===================== MOBILE STACK (≤900px) ===================== */
+      /* ================= MOBILE STACK (≤900px) ================= */
       @media (max-width: 900px) {
         header {
           height: 120px;
           padding: 20px 24px;
           flex-direction: column;
           align-items: center;
-          justify-content: flex-start;
         }
         header img {
           height: 90px;
@@ -108,8 +117,6 @@
           gap: 16px;
           flex-wrap: wrap;
           justify-content: center;
-          margin: 0;
-          padding: 0;
         }
         nav a {
           font-size: 16px;
@@ -128,48 +135,54 @@
           padding-top: 80px;
           font-size: 16px;
         }
+
+        /* Disable desktop offset on mobile */
+        .site {
+          left: 0;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- NAV -->
-    <header>
-      <img src="logo.png" alt="PRISMA logo" />
-      <nav>
-        <ul>
-          <li><a href="#about" class="active">About</a></li>
-          <li><a href="#what-we-do">What We Do</a></li>
-          <li><a href="#approach">Approach</a></li>
-          <li><a href="#experience">Experience</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="site">
+      <!-- NAVBAR -->
+      <header>
+        <img src="logo.png" alt="PRISMA logo" />
+        <nav>
+          <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#what-we-do">What We Do</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#experience">Experience</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <!-- HERO -->
-    <main id="about" class="hero">
-      <h1>
-        PRISMA is an investment and development firm<br />focused on Industrial
-        Real Estate in Mexico.
-      </h1>
-    </main>
+      <!-- HERO -->
+      <main id="about" class="hero">
+        <h1>
+          PRISMA is an investment and development firm<br />focused on Industrial
+          Real Estate in Mexico.
+        </h1>
+      </main>
 
-    <!-- placeholder sections -->
-    <section id="what-we-do"></section>
-    <section id="approach"></section>
-    <section id="experience"></section>
+      <!-- Placeholder Sections -->
+      <section id="what-we-do"></section>
+      <section id="approach"></section>
+      <section id="experience"></section>
 
-    <!-- FOOTER -->
-    <footer>
-      contacto@prismacap.mx
-    </footer>
+      <!-- FOOTER -->
+      <footer>
+        contacto@prismacap.mx
+      </footer>
+    </div>
 
     <script>
-      document.querySelectorAll('nav a').forEach((link) => {
-        link.addEventListener('click', () => {
-          document
-            .querySelectorAll('nav a')
-            .forEach((l) => l.classList.remove('active'));
-          link.classList.add('active');
+      // simple active‑link toggle
+      document.querySelectorAll("nav a").forEach((a) => {
+        a.addEventListener("click", () => {
+          document.querySelectorAll("nav a").forEach((l) => l.classList.remove("active"));
+          a.classList.add("active");
         });
       });
     </script>

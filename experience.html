@@ -6,47 +6,35 @@
     <title>Experience | PRISMA</title>
 
     <style>
-      :root {
-        --blue: #004080;
-        --gray: #404040;
-        --white: #ffffff;
-      }
-
+      :root { --blue:#004080; --gray:#404040; --white:#ffffff; }
       html,body{height:100%;margin:0;}
-      body{
-        font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;
-        color:var(--gray);
-        background:var(--white);
-        display:flex;flex-direction:column;overflow-x:hidden;
-      }
+      body{font-family:"Helvetica Neue","Segoe UI",Arial,sans-serif;color:var(--gray);background:var(--white);display:flex;flex-direction:column;overflow-x:hidden;}
 
-      /* ===== navbar (shared) ===== */
+      /* ===== navbar ===== */
       header{flex:0 0 auto;height:176px;display:flex;align-items:center;justify-content:space-between;padding:0 160px;}
       header img{height:156px;margin-left:-5vw;}
       nav ul{list-style:none;display:flex;gap:40px;margin:0;padding:0;}
-      nav a{text-decoration:none;color:var(--gray);font-size:22px;font-weight:400;letter-spacing:0.4px;transition:color .25s;}
+      nav a{text-decoration:none;color:var(--gray);font-size:22px;font-weight:400;letter-spacing:.4px;transition:color .25s;}
       nav a:hover,nav a.active{color:var(--blue);}
 
-      /* ===== keyframe ===== */
+      /* ===== animation ===== */
       @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
       /* ===== layout ===== */
-      main{flex:1 0 auto;padding:100px 160px 0;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:480px 1fr;gap:120px 100px;align-items:start;}
+      main{flex:1 0 auto;padding:100px 160px 0;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:480px 1fr;gap:120px 120px;align-items:start;}
 
+      .intro{align-self:center;} /* vertical centering requested */
       .intro p{font-size:26px;line-height:1.6;margin:0 0 48px 0;}
       .intro p:last-child{margin-bottom:0;}
 
-      /* metrics grid */
-      .metrics{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);}
+      .metrics{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);}  
       .metric{color:var(--blue);font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.3;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;opacity:0;animation:fadeUp .6s ease-out forwards;}
       .metric:nth-child(2){animation-delay:.25s;}
       .metric:nth-child(3){animation-delay:.5s;}
       .metric:nth-child(4){animation-delay:.75s;}
       @media(prefers-reduced-motion:reduce){.metric{animation:none!important;opacity:1!important;}}
-
-      /* draw cross lines */
-      .metric:nth-child(1),.metric:nth-child(3){border-right:1px solid var(--gray);} /* right border on first column */
-      .metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--gray);}/* bottom border on first row */
+      .metric:nth-child(1),.metric:nth-child(3){border-right:1px solid var(--gray);}  
+      .metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--gray);} 
 
       /* ===== footer ===== */
       footer{flex:0 0 auto;height:176px;display:flex;align-items:flex-start;justify-content:center;padding-top:180px;font-size:20px;}
@@ -57,11 +45,11 @@
         header img{height:90px;margin-left:0;margin-bottom:8px;}
         nav ul{gap:16px;flex-wrap:wrap;justify-content:center;}
         nav a{font-size:16px;}
-
         main{grid-template-columns:1fr;gap:64px;padding:64px 24px 0;}
+        .intro{align-self:auto;}
         .intro p{font-size:18px;}
         .metrics{grid-template-columns:1fr;grid-template-rows:auto;}
-        .metric{font-size:24px;padding:32px;border:none;border-bottom:1px solid var(--gray);} /* stack metrics */
+        .metric{font-size:24px;padding:32px;border:none;border-bottom:1px solid var(--gray);}  
         .metric:last-child{border-bottom:none;}
         footer{height:auto;padding-top:24px;font-size:16px;}
       }
@@ -81,22 +69,21 @@
     </header>
 
     <main>
-      <!-- intro left -->
+      <!-- intro -->
       <div class="intro">
-        <p>Our team brings deep expertise across the full real estate lifecycle – from planning and design to construction, delivery, and long‑term ownership.</p>
-        <p>Collectively, our partners have completed more than 15 million square feet of industrial real estate across Mexico.</p>
+        <p>Our team brings deep expertise across the full real estate lifecycle – from planning and design to construction, delivery, and long-term ownership.</p>
+        <p>Collectively, our partners have completed more than 15 million square feet of industrial real estate across Mexico.</p>
       </div>
 
-      <!-- metrics right -->
+      <!-- metrics -->
       <div class="metrics">
         <div class="metric">50+ Years<br />Combined Team<br />Experience</div>
-        <div class="metric">15+ Million<br />Industrial RE<br />Square Feet</div>
+        <div class="metric">15+ Million<br />Industrial RE<br />Square Feet</div>
         <div class="metric">75%+<br />Multinational<br />Companies</div>
-        <div class="metric">Projects in<br />7+ States<br />in Mexico</div>
+        <div class="metric">Projects in<br />7+ States<br />in Mexico</div>
       </div>
     </main>
 
     <footer>contacto@prismacap.mx</footer>
   </body>
 </html>
-

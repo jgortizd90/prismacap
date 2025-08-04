@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What We Do | PRISMA</title>
+
+    <!-- Simple one‑file stylesheet keeps this page self‑contained. If you later extract a common CSS file, just link it here. -->
+    <style>
+      :root {
+        --blue: #004080;
+        --gray: #404040;
+        --white: #ffffff;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+        color: var(--gray);
+        background: var(--white);
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      /* ===================== NAVBAR (shared look & feel) ===================== */
+      header {
+        flex: 0 0 auto;
+        height: 176px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 160px;
+        position: relative;
+      }
+      header img {
+        height: 156px;
+        margin-left: -5vw; /* aligns with index.html */
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--gray);
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+        transition: color 0.25s;
+      }
+      nav a:hover,
+      nav a.active {
+        color: var(--blue);
+      }
+
+      /* ===================== WHAT WE DO SECTION ===================== */
+      main {
+        flex: 1 0 auto;
+        padding: 160px 160px 0; /* big top padding to match mock‑up */
+      }
+      .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0 80px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .service {
+        text-align: center;
+      }
+      .service h2 {
+        color: var(--blue);
+        font-weight: 400;
+        font-size: clamp(24px, 3vw, 32px);
+        line-height: 1.3;
+        margin: 0 0 24px;
+      }
+      .divider {
+        width: 100%;
+        max-width: 340px;
+        height: 1px;
+        background: var(--gray);
+        margin: 0 auto 32px;
+      }
+      .service p {
+        font-size: 20px;
+        line-height: 1.6;
+        max-width: 340px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      /* ===================== FOOTER ===================== */
+      footer {
+        flex: 0 0 auto;
+        height: 176px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 153px;
+        font-size: 20px;
+        color: var(--gray);
+      }
+
+      /* ===================== MOBILE (≤900px) ===================== */
+      @media (max-width: 900px) {
+        header {
+          height: 120px;
+          padding: 20px 24px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        header img {
+          height: 90px;
+          margin-left: 0;
+          margin-bottom: 8px;
+        }
+        nav ul {
+          gap: 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav a {
+          font-size: 16px;
+        }
+
+        main {
+          padding: 64px 24px 0;
+        }
+        .services {
+          grid-template-columns: 1fr;
+          gap: 64px 0;
+        }
+        .service h2 {
+          font-size: 24px;
+        }
+        .divider {
+          margin: 0 auto 24px;
+        }
+        .service p {
+          font-size: 16px;
+        }
+
+        footer {
+          height: auto;
+          padding-top: 24px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <a href="index.html"><img src="logo.png" alt="PRISMA logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="what-we-do.html" class="active">What We Do</a></li>
+          <li><a href="#" onclick="alert('Approach page coming soon')">Approach</a></li>
+          <li><a href="#" onclick="alert('Experience page coming soon')">Experience</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- WHAT WE DO CONTENT -->
+    <main>
+      <div class="services">
+        <!-- Build‑to‑Suit Developments -->
+        <div class="service">
+          <h2>
+            Build‑to‑Suit<br />Developments
+          </h2>
+          <div class="divider"></div>
+          <p>
+            Tailored industrial buildings across Mexico with cost and timeline
+            certainty — designed and delivered with a focus on clients’ long‑term
+            operational needs. Capable of funding complex facilities and
+            significant tenant improvements.
+          </p>
+        </div>
+
+        <!-- Acquisitions -->
+        <div class="service">
+          <h2>Acquisitions</h2>
+          <div class="divider"></div>
+          <p>
+            We acquire stabilized industrial properties and structure
+            sale‑leasebacks that help tenants unlock capital while remaining in
+            place long term. Our approach is transparent, flexible, and aligned
+            with each tenant’s needs.
+          </p>
+        </div>
+
+        <!-- Special Situations -->
+        <div class="service">
+          <h2>
+            Special<br />Situations
+          </h2>
+          <div class="divider"></div>
+          <p>
+            We pursue complex or non‑core opportunities that fall outside
+            traditional transaction profiles. These include vacant buildings,
+            repositioning plays, short‑term leases, mezzanine lending, and other
+            flexible capital solutions.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      contacto@prismacap.mx
+    </footer>
+  </body>
+</html>

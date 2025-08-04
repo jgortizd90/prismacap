@@ -27,6 +27,21 @@
         overflow-x: hidden;
       }
 
+      /* ========== subtle entrance animation ========== */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .service {
+        opacity: 0;                         /* hidden by default */
+        animation: fadeUp 0.6s ease-out forwards;
+      }
+      .service:nth-child(2) { animation-delay: 0.15s; }
+      .service:nth-child(3) { animation-delay: 0.30s; }
+      @media (prefers-reduced-motion: reduce) {
+        .service { animation: none; opacity: 1; }
+      }
+
       /* ===================== NAVBAR ===================== */
       header {
         flex: 0 0 auto;
@@ -72,17 +87,14 @@
         max-width: 1400px;
         margin: 0 auto;
       }
-      .service {
-        text-align: center;
-      }
-      /* reserve equal vertical space so divider aligns */
+      /* heading box for equal divider alignment */
       .service h2 {
         color: var(--blue);
         font-weight: 400;
         font-size: clamp(24px, 3vw, 32px);
         line-height: 1.3;
         margin: 0 0 24px;
-        min-height: 90px;            /* === key: equal height box === */
+        min-height: 90px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -144,7 +156,7 @@
         }
         .service h2 {
           font-size: 24px;
-          min-height: auto; /* single column, so equal height no longer critical */
+          min-height: auto;
         }
         .divider {
           margin: 0 auto 24px;

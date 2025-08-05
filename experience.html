@@ -14,7 +14,7 @@
       header{flex:0 0 auto;height:176px;display:flex;align-items:center;justify-content:space-between;padding:0 160px;}
       header img{height:156px;margin-left:-5vw;}
       nav ul{list-style:none;display:flex;gap:40px;margin:0;padding:0;}
-      nav a{text-decoration:none;color:var(--gray);font-size:22px;font-weight:400;letter-spacing:.4px;transition:color .25s;}
+      nav a{text-decoration:none;color:var(--gray);font-size:22px;font-weight:400;letter-spacing:.4px;transition:color .25s;white-space:nowrap;} /* prevent wrapping */
       nav a:hover,nav a.active{color:var(--blue);}
 
       /* ===== animation ===== */
@@ -23,7 +23,7 @@
       /* ===== layout ===== */
       main{flex:1 0 auto;padding:70px 160px 0;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:480px 1fr;gap:120px 120px;align-items:start;}
 
-      .intro{align-self:center;} /* vertical centering requested */
+      .intro{align-self:center;}
       .intro p{font-size:26px;line-height:1.6;margin:0 0 48px 0;}
       .intro p:last-child{margin-bottom:0;}
 
@@ -61,7 +61,7 @@
       <nav>
         <ul>
           <li><a href="index.html">About</a></li>
-          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="what-we-do.html">What&nbsp;We&nbsp;Do</a></li>
           <li><a href="approach.html">Approach</a></li>
           <li><a href="experience.html" class="active">Experience</a></li>
         </ul>

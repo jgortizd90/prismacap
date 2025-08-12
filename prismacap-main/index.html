@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PRISMA | Industrial Real Estate</title>
+
+    <style>
+      :root {
+        --blue: #004080;
+        --gray: #404040;
+        --white: #ffffff;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+        color: var(--gray);
+        background: var(--white);
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden; /* avoid horizontal scroll */
+      }
+
+      /* ===== fade‑in animation for hero text ===== */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero h1 { animation: none !important; opacity: 1 !important; }
+      }
+
+      /* ===================== DESKTOP NAVBAR ===================== */
+      header {
+        flex: 0 0 auto;
+        height: 176px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 160px; /* desktop left/right offset */
+        position: relative;
+      }
+      header img {
+        height: 156px;
+        margin-left: -5vw; /* shift logo ~5% viewport width to the left */
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--gray);
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+        transition: color 0.25s;
+        white-space: nowrap; /* prevent wrapping like "What We Do" */
+      }
+      nav a:hover,
+      nav a.active {
+        color: var(--blue);
+      }
+
+      /* ===================== HERO ===================== */
+      main.hero {
+        flex: 1 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 153px 0; /* equal gap top & bottom */
+        padding: 0 160px;
+      }
+      .hero h1 {
+        line-height: 1.6;
+        font-weight: 400;
+        font-size: clamp(24px, 3.3vw, 35px);
+        max-width: 100%;
+        opacity: 0;                       /* start invisible */
+        animation: fadeUp 0.6s ease-out forwards;
+      }
+
+      /* ===================== FOOTER ===================== */
+      footer {
+        flex: 0 0 auto;
+        height: 176px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 153px;
+        font-size: 20px;
+        color: var(--gray);
+      }
+
+      /* ===================== MOBILE STACK (≤900px) ===================== */
+      @media (max-width: 900px) {
+        header {
+          height: 120px;
+          padding: 20px 24px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        header img {
+          height: 90px;
+          margin-left: 0; /* reset logo offset on mobile */
+          margin-bottom: 8px;
+        }
+        nav {
+          width: 100%;
+        }
+        nav ul {
+          gap: 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+        nav a {
+          font-size: 16px;
+        }
+
+        main.hero {
+          margin: 24px 0;
+          padding: 0 24px;
+        }
+        .hero h1 {
+          font-size: clamp(16px, 4.8vw, 22.4px);
+        }
+
+        footer {
+          height: auto;
+          padding-top: 24px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <header>
+      <img src="logo.png" alt="PRISMA logo" />
+      <nav>
+        <ul>
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="what-we-do.html">What&nbsp;We&nbsp;Do</a></li>
+          <li><a href="approach.html">Approach</a></li>
+          <li><a href="experience.html">Experience</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main id="about" class="hero">
+      <h1>
+        PRISMA is an investment and development firm<br />focused on Industrial
+        Real Estate in Mexico.
+      </h1>
+    </main>
+
+    <!-- placeholder sections -->
+    <section id="what-we-do"></section>
+    <section id="approach"></section>
+    <section id="experience"></section>
+
+    <!-- FOOTER -->
+    <footer>
+      contacto@prismacap.mx
+    </footer>
+
+    <script>
+      document.querySelectorAll('nav a').forEach((link) => {
+        link.addEventListener('click', () => {
+          document.querySelectorAll('nav a').forEach((l) => l.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>
